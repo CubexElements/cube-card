@@ -15,6 +15,7 @@
       #header {
         padding: 10px;
         border-bottom: 1px solid grey;
+        position: relative;
       }
 
       #header h1 {
@@ -34,16 +35,17 @@
       }
 
       :host([thumbnail]) #header {
-        min-height: 130px;
+        padding-right: 50%;
       }
 
       :host([thumbnail]) #overview {
         background-image: var(--card-thumbnail);
         background-size: cover;
-        width: 140px;
-        height: 150px;
-        margin: -10px -10px 0 10px;
-        box-sizing: content-box;
+        width: 50%;
+        position: absolute;
+        right: 0;
+        top: 0;
+        bottom: 0;
       }
 
       #content::slotted(fort-action),
