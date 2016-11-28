@@ -12,10 +12,11 @@
         @apply --paper-font-body1;
       }
 
-      #header {
-        padding: 10px;
+      :host([title]) #header {
+        padding: 0 10px 10px 10px;
         border-bottom: 1px solid grey;
         position: relative;
+        margin-bottom: 10px;
       }
 
       #header h1 {
@@ -67,17 +68,51 @@
         color: #0074db;
       }
 
+      #toolbar {
+        display: flex;
+      }
+
+      #toolbar fort-icon,
+      #toolbar fort-action {
+        margin: 7px;
+      }
+
+      #toolbar h1 {
+        @apply --paper-font-body2;
+        display: inline-flex;
+        flex-grow: 1;
+      }
+
+      #toolbar h1 span {
+        @apply --paper-font-caption;
+        padding-left: 5px;
+      }
+
+      #toolbar,
+      #toolbar h1,
+      #toolbar h1 span {
+        line-height: 48px;
+        margin: 0;
+      }
+
     </style>
-    <div id="header">
-      <div id="overview">
-        <slot name="overview"></slot>
-      </div>
-      <h1>{{title}}</h1>
-      <h2>{{subtitle}}</h2>
+    <div id="toolbar">
+      <fort-icon icon="image:wb-cloudy"></fort-icon>
+      <h1>Title <span class="time">- 17 mins</span></h1>
+      <fort-action icon="icons:more-vert"></fort-action>
     </div>
-    <slot id="content"></slot>
-    <div id="legal">
-      <slot name="legal"></slot>
+    <div id="card">
+      <div id="header">
+        <div id="overview">
+          <slot name="overview"></slot>
+        </div>
+        <h1>{{title}}</h1>
+        <h2>{{subtitle}}</h2>
+      </div>
+      <slot id="content"></slot>
+      <div id="legal">
+        <slot name="legal"></slot>
+      </div>
     </div>
   </template>
 

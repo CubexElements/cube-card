@@ -2,25 +2,50 @@
 <link rel="import" href="../paper-styles/paper-styles.html">
 
 
-<dom-module id="fort-card-content">
+<dom-module id="fort-card-content" attributes="slim">
   <template>
     <style>
       :host {
+        position: relative;
         display: block;
-        margin: 10px;
+        margin: 0 10px 10px 10px;
+        min-height:50px;
+      }
+
+      :host([slim]) {
+        margin: 0;
       }
 
       ::slotted(h1), ::slotted(h2), ::slotted(h3), ::slotted(h4), ::slotted(h5), ::slotted(h6) {
+        @apply --paper-font-body2;
         margin: 4px 0 2px 0;
+      }
+
+      ::slotted(em) {
+        @apply --paper-font-display1;
+        text-decoration: none;
+        position: absolute;
+        right: 0;
+        top: 0;
+        bottom: 0;
+        padding: 20px;
       }
 
       ::slotted(p) {
         margin: 1px 0;
+        @apply --paper-font-body1;
       }
 
       ::slotted(img) {
         width: 300px;
         margin: 10px -10px -15px -10px;
+      }
+
+      ::slotted(img.thumbnail) {
+        width: 80px;
+        height: 80px;
+        margin: 0 0 10px 10px;
+        float: right;
       }
 
       ::slotted(.error) {
