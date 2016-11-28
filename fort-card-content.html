@@ -1,0 +1,48 @@
+<link rel="import" href="../polymer/polymer.html">
+<link rel="import" href="../paper-styles/paper-styles.html">
+
+
+<dom-module id="fort-card-content">
+  <template>
+    <style>
+      :host {
+        display: block;
+        margin: 10px;
+      }
+
+      ::slotted(h1), ::slotted(h2), ::slotted(h3), ::slotted(h4), ::slotted(h5), ::slotted(h6) {
+        margin: 4px 0 2px 0;
+      }
+
+      ::slotted(p) {
+        margin: 1px 0;
+      }
+
+      ::slotted(img) {
+        width: 300px;
+        margin: 10px -10px -15px -10px;
+      }
+
+      ::slotted(.error) {
+        color: #ab0000;
+      }
+
+      ::slotted(.success) {
+        color: #00ab00;
+      }
+
+      ::slotted(.info) {
+        color: #0078ab;
+      }
+    </style>
+    <slot></slot>
+  </template>
+
+  <script>
+    Polymer(
+      {
+        is: 'fort-card-content'
+      }
+    );
+  </script>
+</dom-module>

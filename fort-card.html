@@ -1,0 +1,108 @@
+<link rel="import" href="../polymer/polymer.html">
+<link rel="import" href="../paper-styles/paper-styles.html">
+
+<dom-module id="fort-card">
+  <template>
+    <style>
+      :host {
+        border: 1px solid black;
+        width: 300px;
+        display: inline-block;
+        color: #444;
+        @apply --paper-font-body1;
+      }
+
+      #header {
+        padding: 10px;
+        border-bottom: 1px solid grey;
+      }
+
+      #header h1 {
+        @apply --paper-font-headline;
+        margin: 0;
+        margin-bottom: 5px;
+      }
+
+      #header h2 {
+        @apply --paper-font-body1;
+        margin: 0;
+      }
+
+      #overview {
+        float: right;
+        margin-left: 10px;
+      }
+
+      :host([thumbnail]) #header {
+        min-height: 130px;
+      }
+
+      :host([thumbnail]) #overview {
+        background-image: var(--card-thumbnail);
+        background-size: cover;
+        width: 140px;
+        height: 150px;
+        margin: -10px -10px 0 10px;
+        box-sizing: content-box;
+      }
+
+      #content::slotted(fort-action),
+      #legal ::slotted(fort-action) {
+        box-sizing: border-box;
+        border-top: 1px solid grey;
+        width: 100%;
+      }
+
+      #legal ::slotted(fort-action) {
+        font-size: 12px;
+        line-height: 14px;
+        display: block;
+        text-align: right;
+      }
+
+      #content::slotted(fort-action) {
+        line-height: 34px;
+        color: #0074db;
+      }
+
+    </style>
+    <div id="header">
+      <div id="overview">
+        <slot name="overview"></slot>
+      </div>
+      <h1>{{title}}</h1>
+      <h2>{{subtitle}}</h2>
+    </div>
+    <slot id="content"></slot>
+    <div id="legal">
+      <slot name="legal"></slot>
+    </div>
+  </template>
+
+  <script>
+    Polymer(
+      {
+        is:                'fort-card',
+        properties:        {
+          title:     {
+            type:               String,
+            reflectToAttribute: true
+          },
+          subtitle:  {
+            type:               String,
+            reflectToAttribute: true
+          },
+          thumbnail: {
+            type:               String,
+            reflectToAttribute: true,
+            observer:           '_thumbnailChanged'
+          }
+        },
+        _thumbnailChanged: function (newVal, oldVal)
+                           {
+                             this.updateStyles({'--card-thumbnail': 'url(' + newVal + ')'});
+                           }
+      }
+    );
+  </script>
+</dom-module>

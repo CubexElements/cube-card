@@ -1,39 +1,83 @@
 <!doctype html>
 <html>
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, minimum-scale=1.0, initial-scale=1.0, user-scalable=yes">
-    <title>seed-element Demo</title>
-    <script src="../../webcomponentsjs/webcomponents-lite.js"></script>
-    <link rel="import" href="../seed-element.html">
-  </head>
-  <body unresolved>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, minimum-scale=1.0, initial-scale=1.0, user-scalable=yes">
+  <title>fort-card Demo</title>
+  <script src="../../webcomponentsjs/webcomponents-lite.js"></script>
+  <link rel="import" href="../fort-card.html">
+  <link rel="import" href="../fort-card-content.html">
+  <link rel="import" href="../../fort-action/fort-action.html">
+  <link rel="import" href="../../fort-icon/fort-icon.html">
+</head>
+<body unresolved>
 
-    <p>An example of <code>&lt;seed-element&gt;</code>:</p>
+<style>
+  fort-card {
+    margin: 20px;
+  }
+</style>
 
-    <p>Make words! <button id="saybtn">Say Something</button></p>
-    <p>Make lasers! <button id="laserbtn">Fire lasers</button></p>
+<fort-card title="Virgin America flight 25">
+  <fort-icon icon="icons:flight-takeoff" style="width:56px; height:56px;" slot="overview"></fort-icon>
 
-    <seed-element author='{"name": "Lord Meowser", "image": "http://lorempixel.com/g/300/200/cats/"}' fancy>
-      <h2>Hello seed-element</h2>
-    </seed-element>
+  <fort-card-content>
+    <p><strong>Status: Delayed</strong> / Mon, 29 Oct 2012</p>
+    <h3>Depart New York</h3>
+    <p><strong>12:30 PM (12:00 PM)</strong><br/>
+      Terminal 2, Gate 54B</p>
+    <h3>Arrive San Francisco</h3>
+    <p><strong>1:56 PM (1:31 PM)</strong>
+      <br/>Terminal 4</p>
+  </fort-card-content>
 
-    <script>
-      var seedElement = document.querySelector('seed-element');
+  <fort-action>
+    <fort-icon icon="maps:navigation"></fort-icon>
+    Navigate to JFK / 32 min
+  </fort-action>
 
-      document.querySelector('#saybtn').addEventListener('click', function() {
-        alert(seedElement.sayHello('Hallo!'));
-      });
+  <fort-action>
+    <fort-icon icon="communication:email"></fort-icon>
+    View email
+  </fort-action>
 
-      document.querySelector('#laserbtn').addEventListener('click', function() {
-        seedElement.fireLasers();
-      });
+  <fort-action slot="legal">Disclaimer</fort-action>
+</fort-card>
 
-      document.addEventListener("seed-element-lasers", function(e) {
-        console.log(e.detail.sound);
-      });
+<fort-card title="The Connaught Hotel" subtitle="Carlos Place, Mayfair, London, W1K 2AL, United Kingdom">
+  <fort-card-content>
+    <span class="error">Check-out in 1 hour</span>
+    <img src="http://r-ec.bstatic.com/images/hotel/840x460/469/46904169.jpg"/>
+  </fort-card-content>
 
-    </script>
+  <fort-action>
+    <fort-icon icon="maps:directions"></fort-icon>
+    Get directions
+  </fort-action>
 
-  </body>
+  <fort-action>
+    <fort-icon icon="communication:email"></fort-icon>
+    View email
+  </fort-action>
+</fort-card>
+
+<fort-card title="Walking with Dinosaurs" subtitle="The O2 Arena, Peninsula Square, London, SE10 ABC"
+           thumbnail="http://asset-manager.bbcchannels.com/i/2cyh80000f41000">
+
+  <fort-card-content>
+    Ticket Reminder<br/><span class="success">Show starts at 7:00pm</span>
+  </fort-card-content>
+
+  <fort-action>
+    <fort-icon icon="maps:directions"></fort-icon>
+    Get directions
+  </fort-action>
+
+  <fort-action>
+    <fort-icon icon="communication:email"></fort-icon>
+    View email
+  </fort-action>
+</fort-card>
+
+</body>
 </html>
