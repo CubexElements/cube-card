@@ -1,5 +1,5 @@
 {
-  "name": "fort-card",
+  "name": "cube-card",
   "version": "1.0.0",
   "authors": [
     "Anonymous <anonymous@example.com>"
@@ -11,9 +11,9 @@
     "seed"
   ],
   "private": true,
-  "main": "fort-card.html",
+  "main": "cube-card.html",
   "license": "MIT",
-  "homepage": "https://github.com/FortifiElements/fort-card/",
+  "homepage": "https://github.com/CubexElements/cube-card/",
   "ignore": [
     "/.*",
     "/test/",
@@ -22,8 +22,8 @@
   ],
   "dependencies": {
     "polymer": "Polymer/polymer#2.0-preview",
-    "fort-action": "FortifiElements/fort-action",
-    "fort-icon": "FortifiElements/fort-icon"
+    "cube-action": "CubexElements/cube-action",
+    "cube-icon": "CubexElements/cube-icon"
   },
   "devDependencies": {
     "iron-component-page": "PolymerElements/iron-component-page#2.0-preview",

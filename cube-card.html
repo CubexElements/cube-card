@@ -1,7 +1,7 @@
 <link rel="import" href="../polymer/polymer.html">
 <link rel="import" href="../paper-styles/paper-styles.html">
 
-<dom-module id="fort-card">
+<dom-module id="cube-card">
   <template>
     <style>
       :host {
@@ -49,27 +49,27 @@
         bottom: 0;
       }
 
-      #content::slotted(fort-action),
-      #legal ::slotted(fort-action) {
+      #content::slotted(cube-action),
+      #legal ::slotted(cube-action) {
         box-sizing: border-box;
         border-top: 1px solid grey;
         width: 100%;
       }
 
-      #legal ::slotted(fort-action) {
+      #legal ::slotted(cube-action) {
         font-size: 12px;
         line-height: 14px;
         display: block;
         text-align: right;
       }
 
-      #content::slotted(fort-action) {
+      #content::slotted(cube-action) {
         padding-left: 10px;
         line-height: 34px;
         color: #0074db;
       }
 
-      #content::slotted(fort-action[icon]) {
+      #content::slotted(cube-action[icon]) {
         padding-left: 0;
       }
 
@@ -77,8 +77,8 @@
         display: flex;
       }
 
-      #toolbar fort-icon,
-      #toolbar fort-action {
+      #toolbar cube-icon,
+      #toolbar cube-action {
         margin: 7px;
       }
 
@@ -102,9 +102,9 @@
 
     </style>
     <div id="toolbar">
-      <fort-icon icon="image:wb-cloudy"></fort-icon>
+      <cube-icon icon="image:wb-cloudy"></cube-icon>
       <h1>Title <span class="time">- 17 mins</span></h1>
-      <fort-action icon="icons:more-vert"></fort-action>
+      <cube-action icon="icons:more-vert"></cube-action>
     </div>
     <div id="card">
       <div id="header">
@@ -124,7 +124,7 @@
   <script>
     Polymer(
       {
-        is:                'fort-card',
+        is:                'cube-card',
         properties:        {
           title:     {
             type:               String,

@@ -1,5 +1,5 @@
-_[Demo and API docs](https://elements.fortifi.it/elements/fort-card)_
+_[Demo and API docs](https://elements.cubex.io/elements/cube-card)_
 
-##&lt;fort-card&gt;
+##&lt;cube-card&gt;
 
-An element for displaying Fortifi Cards (Now, Next, Trending, Story)
+An element for displaying Cubex Cards (Now, Next, Trending, Story)
