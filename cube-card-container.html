@@ -1,0 +1,26 @@
+<link rel="import" href="../polymer/polymer.html">
+
+<dom-module id="cube-card-container">
+  <template>
+    <style>
+      :host {
+        display: flex;
+        align-content: flex-start;
+        align-items: flex-start;
+        flex-flow: column wrap;
+      }
+    </style>
+    <slot name="now"></slot>
+    <slot name="then"></slot>
+    <slot name="next"></slot>
+    <slot></slot>
+  </template>
+
+  <script>
+    Polymer(
+      {
+        is: 'cube-card-container'
+      }
+    );
+  </script>
+</dom-module>
