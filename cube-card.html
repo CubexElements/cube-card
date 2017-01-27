@@ -15,43 +15,41 @@
         @apply --shadow-elevation-2dp;
       }
 
+      :host #header {
+        overflow: hidden;
+        border-bottom: 1px solid var(--divider-secondary-color);
+        position: relative;
+        margin-bottom: 16px;
+
+        display: flex;
+        justify-content: space-between;
+      }
+
       :host #headerText {
-        padding: 0 16px 16px 16px;
-        flex-basis: 200%;
+        padding: 0 16px 0 16px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
       }
 
       #headerBox {
         display: flex;
         justify-content: flex-end;
+        background-position: center;
+        background-size: cover;
         min-width: 40%;
-      }
-
-      #headerBox img {
-        display: block;
-        align-self: flex-end;
-        width: 100%;
-      }
-
-      :host #header {
-        overflow: hidden;
-        border-bottom: 1px solid var(--divider-secondary-color);
-        position: relative;
-        display: flex;
-        flex: 1 1;
-        margin-bottom: 16px;
       }
 
       #header h1 {
         @apply --paper-font-title;
         font-weight: normal;
-        margin: 0;
-        margin-bottom: 5px;
+        margin: 0 0 5px;
         white-space: normal;
       }
 
       #header h2 {
         @apply --paper-font-body1;
-        margin: 0;
+        margin: 0 0 5px;
       }
 
       :host #headerBox {
@@ -140,7 +138,7 @@
               <h2>[[subtitle]]</h2>
             </template>
           </div>
-          <div id="headerBox" style="background: url([[thumbnail]]) center;background-size:cover;">
+          <div id="headerBox" style="background-image:url([[thumbnail]])">
             <slot name="overview"></slot>
           </div>
         </div>
