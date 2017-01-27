@@ -15,10 +15,30 @@
         @apply --shadow-elevation-2dp;
       }
 
-      :host([title]) #header {
+      :host #headerText {
         padding: 0 16px 16px 16px;
+        flex-basis: 200%;
+      }
+
+      #headerBox {
+        display: flex;
+        justify-content: flex-end;
+        min-width: 40%;
+      }
+
+      #headerBox img {
+        display: block;
+        align-self: flex-end;
+        width: 100%;
+      }
+
+      :host #header {
+        overflow: hidden;
         border-bottom: 1px solid var(--divider-secondary-color);
         position: relative;
+        display: flex;
+        flex: 1 1;
+        margin-bottom: 16px;
       }
 
       #header h1 {
@@ -26,6 +46,7 @@
         font-weight: normal;
         margin: 0;
         margin-bottom: 5px;
+        white-space: normal;
       }
 
       #header h2 {
@@ -33,23 +54,8 @@
         margin: 0;
       }
 
-      #overview {
-        float: right;
-        margin-left: 16px;
-      }
-
-      :host([thumbnail]) #header {
-        padding-right: 50%;
-      }
-
-      :host([thumbnail]) #overview {
-        background-image: var(--card-thumbnail);
+      :host #headerBox {
         background-size: cover;
-        width: 50%;
-        position: absolute;
-        right: 0;
-        top: 0;
-        bottom: 0;
       }
 
       #content::slotted(cube-action),
@@ -118,19 +124,28 @@
       }
 
     </style>
+
     <div id="toolbar">
       <cube-icon icon="image:wb-cloudy"></cube-icon>
       <h1>Title <span class="time">- 17 mins</span></h1>
       <cube-action id="options" icon="icons:more-vert"></cube-action>
     </div>
+
     <div id="card">
-      <div id="header">
-        <div id="overview">
-          <slot name="overview"></slot>
+      <template is="dom-if" if="[[title]]">
+        <div id="header">
+          <div id="headerText">
+            <h1>[[title]]</h1>
+            <template is="dom-if" if="[[subtitle]]">
+              <h2>[[subtitle]]</h2>
+            </template>
+          </div>
+          <div id="headerBox" style="background: url([[thumbnail]]) center;background-size:cover;">
+            <slot name="overview"></slot>
+          </div>
         </div>
-        <h1>{{title}}</h1>
-        <h2>{{subtitle}}</h2>
-      </div>
+      </template>
+
       <slot id="content"></slot>
       <div id="legal">
         <slot name="legal"></slot>
@@ -141,26 +156,12 @@
   <script>
     Polymer(
       {
-        is:                'cube-card',
-        properties:        {
-          title:     {
-            type:               String,
-            reflectToAttribute: true
-          },
-          subtitle:  {
-            type:               String,
-            reflectToAttribute: true
-          },
-          thumbnail: {
-            type:               String,
-            reflectToAttribute: true,
-            observer:           '_thumbnailChanged'
-          }
-        },
-        _thumbnailChanged: function (newVal, oldVal)
-                           {
-                             this.updateStyles({'--card-thumbnail': 'url(' + newVal + ')'});
-                           }
+        is:         'cube-card',
+        properties: {
+          title:     {type: String},
+          subtitle:  {type: String},
+          thumbnail: {type: String}
+        }
       }
     );
   </script>
