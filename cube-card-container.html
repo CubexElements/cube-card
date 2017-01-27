@@ -4,15 +4,45 @@
   <template>
     <style>
       :host {
-        display: flex;
-        align-content: flex-start;
-        align-items: flex-start;
-        flex-flow: column wrap;
+        display: block;
       }
+
+      #columns {
+        display: flex;
+        flex-wrap: wrap;
+        flex-direction: row;
+        align-content: space-between;
+        flex-basis: 33%;
+      }
+
+      #columns > div {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin: 8px;
+
+        text-align: center;
+        flex: 1 0;
+      }
+
+      #columns > div ::slotted(*) {
+        max-width: initial;
+        text-align: left;
+        margin-bottom: 16px;
+      }
+
     </style>
-    <slot name="now"></slot>
-    <slot name="then"></slot>
-    <slot name="next"></slot>
+    <div id="columns">
+      <div>
+        <slot name="now"></slot>
+      </div>
+      <div>
+        <slot name="next"></slot>
+      </div>
+      <div>
+        <slot name="past"></slot>
+      </div>
+    </div>
     <slot></slot>
   </template>
 
