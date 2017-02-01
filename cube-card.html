@@ -13,6 +13,11 @@
         @apply --text-primary;
         @apply --paper-font-body1;
         @apply --shadow-elevation-2dp;
+        transition: box-shadow 300ms;
+      }
+
+      :host(:hover) {
+        @apply --shadow-elevation-6dp;
       }
 
       :host #header {
