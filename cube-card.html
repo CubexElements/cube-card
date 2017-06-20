@@ -1,7 +1,7 @@
 <link rel="import" href="../polymer/polymer.html">
 <link rel="import" href="../paper-styles/paper-styles.html">
 
-<dom-module id="cube-card" attributes="order">
+<dom-module id="cube-card" attributes="order icon app-id app-name app-icon vendor-name time">
   <template>
     <style>
       :host {
@@ -69,12 +69,27 @@
         width: 100%;
       }
 
-      #legal ::slotted(cube-action) {
+      #legal ::slotted(*),
+      #legal span {
         font-size: 12px;
         line-height: 14px;
         display: block;
         text-align: right;
         @apply --text-secondary;
+      }
+
+      #legal span {
+        margin: 0;
+        box-sizing: border-box;
+        border-top: 1px solid var(--divider-secondary-color);
+        width: 100%;
+        padding: 5px;
+        line-height: 18px;
+      }
+
+      #legal span cube-icon {
+        --cube-icon-padding: 0 3px 2px 3px;
+        vertical-align: middle;
       }
 
       #content::slotted(cube-action) {
@@ -130,18 +145,18 @@
     </style>
 
     <div id="toolbar">
-      <cube-icon icon="image:wb-cloudy"></cube-icon>
-      <h1>Title <span class="time">- 17 mins</span></h1>
+      <cube-icon icon="[[icon]]"></cube-icon>
+      <h1>[[title]]<span class="time">[[ updateTime ]]</span></h1>
       <cube-action id="options" icon="icons:more-vert"></cube-action>
     </div>
 
     <div id="card">
-      <template is="dom-if" if="[[title]]">
+      <template is="dom-if" if="[[header]]">
         <div id="header">
           <div id="headerText">
-            <h1>[[title]]</h1>
-            <template is="dom-if" if="[[subtitle]]">
-              <h2>[[subtitle]]</h2>
+            <h1>[[header]]</h1>
+            <template is="dom-if" if="[[subHeader]]">
+              <h2>[[subHeader]]</h2>
             </template>
           </div>
           <div id="headerBox" style="background-image:url([[thumbnail]])">
@@ -153,6 +168,13 @@
       <slot id="content"></slot>
       <div id="legal">
         <slot name="legal"></slot>
+        <template is="dom-if" if="[[appName]]">
+          <span>
+            <strong>[[ appName ]]</strong> by <em>[[vendorName]]</em>
+            <cube-icon size="16" icon="[[appIcon]]"></cube-icon>
+          </span>
+        </template>
+
       </div>
     </div>
   </template>
@@ -162,10 +184,17 @@
       {
         is:           'cube-card',
         properties:   {
-          title:     {type: String},
-          subtitle:  {type: String},
-          thumbnail: {type: String},
-          order:     {type: Number, observer: "_updateOrder"}
+          icon:       {type: String},
+          title:      {type: String},
+          header:     {type: String},
+          subHeader:  {type: String},
+          thumbnail:  {type: String},
+          appId:      {type: String},
+          appName:    {type: String},
+          appIcon:    {type: String},
+          vendorName: {type: String},
+          time:       {type: String},//- 17 mins
+          order:      {type: Number, observer: "_updateOrder"}
         },
         _updateOrder: function (val)
                       {
