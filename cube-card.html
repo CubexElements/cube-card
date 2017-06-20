@@ -1,7 +1,7 @@
 <link rel="import" href="../polymer/polymer.html">
 <link rel="import" href="../paper-styles/paper-styles.html">
 
-<dom-module id="cube-card">
+<dom-module id="cube-card" attributes="order">
   <template>
     <style>
       :host {
@@ -13,6 +13,7 @@
         @apply --text-primary;
         @apply --paper-font-body1;
         @apply --shadow-elevation-2dp;
+        order: var(--card-order, 1000);
         transition: box-shadow 300ms;
       }
 
@@ -159,12 +160,17 @@
   <script>
     Polymer(
       {
-        is:         'cube-card',
-        properties: {
+        is:           'cube-card',
+        properties:   {
           title:     {type: String},
           subtitle:  {type: String},
-          thumbnail: {type: String}
-        }
+          thumbnail: {type: String},
+          order:     {type: Number, observer: "_updateOrder"}
+        },
+        _updateOrder: function (val)
+                      {
+                        this.updateStyles({'--card-order': val});
+                      }
       }
     );
   </script>
