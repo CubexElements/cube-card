@@ -12,13 +12,15 @@
         @apply --theme-100;
         @apply --text-primary;
         @apply --paper-font-body1;
+        @apply --shadow-transition;
         @apply --shadow-elevation-2dp;
         order: var(--card-order, 1000);
         transition: box-shadow 300ms;
+        border-radius: 2px;
       }
 
       :host(:hover) {
-        @apply --shadow-elevation-6dp;
+        @apply --shadow-elevation-3dp;
       }
 
       :host #header {
@@ -112,6 +114,11 @@
 
       :host(:hover) #options {
         visibility: visible;
+      }
+
+      #toolbar {
+        background: var(--theme-400-color);
+        border-bottom: 1px solid var(--divider-secondary-color);
       }
 
       #toolbar cube-action {
