@@ -1,10 +1,12 @@
-<link rel="import" href="../polymer/polymer.html">
-<link rel="import" href="../paper-styles/paper-styles.html">
+import '@polymer/paper-styles/paper-styles-classes.js';
+import {PolymerElement, html} from '@polymer/polymer/polymer-element.js';
 
+class CubeCardContent extends PolymerElement {
+  static get is() {return 'cube-card-content'}
 
-<dom-module id="cube-card-content" attributes="slim">
-  <template>
-    <style>
+  static get template()
+  {
+    return html`<style>
       :host {
         position: relative;
         display: block;
@@ -61,14 +63,8 @@
         color: #0078ab;
       }
     </style>
-    <slot></slot>
-  </template>
+    <slot></slot>`
+  }
+}
 
-  <script>
-    Polymer(
-      {
-        is: 'cube-card-content'
-      }
-    );
-  </script>
-</dom-module>
+customElements.define(CubeCardContent.is, CubeCardContent);

@@ -1,7 +1,11 @@
-<link rel="import" href="../polymer/polymer.html">
+import {PolymerElement, html} from '@polymer/polymer/polymer-element.js';
 
-<dom-module id="cube-card-container">
-  <template>
+class CubeCardContainer extends PolymerElement {
+  static get is() {return 'cube-card-container'}
+
+  static get template()
+  {
+    return html`
     <style>
       :host {
         display: block;
@@ -48,13 +52,8 @@
       </div>
     </div>
     <slot></slot>
-  </template>
+`
+  }
+}
 
-  <script>
-    Polymer(
-      {
-        is: 'cube-card-container'
-      }
-    );
-  </script>
-</dom-module>
+customElements.define(CubeCardContainer.is, CubeCardContainer);

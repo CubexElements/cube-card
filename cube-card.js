@@ -1,9 +1,13 @@
-<link rel="import" href="../polymer/polymer.html">
-<link rel="import" href="../paper-styles/paper-styles.html">
+import {PolymerElement, html} from '@polymer/polymer/polymer-element.js';
+import '@polymer/paper-styles/paper-styles-classes.js';
+import '@webcomponents/shadycss/apply-shim.min.js'
 
-<dom-module id="cube-card" attributes="order icon app-id app-name app-icon vendor-name time">
-  <template>
-    <style>
+class CubeCard extends PolymerElement {
+  static get is() {return 'cube-card';}
+
+  static get template()
+  {
+    return html`<style>
       :host {
         width: 100%;
         min-width: 300px;
@@ -183,31 +187,30 @@
         </template>
 
       </div>
-    </div>
-  </template>
+    </div>`;
+  }
 
-  <script>
-    Polymer(
-      {
-        is:           'cube-card',
-        properties:   {
-          icon:       {type: String},
-          title:      {type: String},
-          header:     {type: String},
-          subHeader:  {type: String},
-          thumbnail:  {type: String},
-          appId:      {type: String},
-          appName:    {type: String},
-          appIcon:    {type: String},
-          vendorName: {type: String},
-          time:       {type: String},//- 17 mins
-          order:      {type: Number, observer: "_updateOrder"}
-        },
-        _updateOrder: function (val)
-                      {
-                        this.updateStyles({'--card-order': val});
-                      }
-      }
-    );
-  </script>
-</dom-module>
+  static get properties()
+  {
+    return {
+      icon:       {type: String},
+      title:      {type: String},
+      header:     {type: String},
+      subHeader:  {type: String},
+      thumbnail:  {type: String},
+      appId:      {type: String},
+      appName:    {type: String},
+      appIcon:    {type: String},
+      vendorName: {type: String},
+      time:       {type: String},//- 17 mins
+      order:      {type: Number, observer: "_updateOrder"}
+    }
+  }
+
+  _updateOrder(val)
+  {
+    this.updateStyles({'--card-order': val});
+  }
+}
+
+customElements.define(CubeCard.is, CubeCard);

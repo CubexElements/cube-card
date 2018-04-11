@@ -1,0 +1,27 @@
+{
+  "name": "@kubex/cube-card",
+  "flat": true,
+  "version": "3.0.0-pre.1",
+  "description": "An element providing a solution to no problem in particular.",
+  "contributors": [
+    "Anonymous <anonymous@example.com>"
+  ],
+  "keywords": [
+    "web-component",
+    "polymer",
+    "seed"
+  ],
+  "main": "cube-card.html",
+  "license": "MIT",
+  "homepage": "https://github.com/CubexElements/cube-card/",
+  "dependencies": {
+    "@kubex/cube-action": "^3.0.0-pre.1",
+    "@kubex/cube-icon": "^3.0.0-pre.1",
+    "@polymer/paper-styles": "^3.0.0-pre.12",
+    "@polymer/polymer": "^3.0.0-pre.1",
+    "@webcomponents/shadycss": "^1.1.3"
+  },
+  "devDependencies": {
+    "@polymer/iron-icons": "^3.0.0-pre.12"
+  }
+}

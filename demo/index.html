@@ -4,13 +4,16 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, minimum-scale=1.0, initial-scale=1.0, user-scalable=yes">
   <title>cube-card Demo</title>
-  <script src="../../webcomponentsjs/webcomponents-lite.js"></script>
-  <link rel="import" href="../cube-card.html">
-  <link rel="import" href="../cube-card-content.html">
-  <link rel="import" href="../../cube-action/cube-action.html">
-  <link rel="import" href="../../cube-icon/cube-icon.html">
+  <script type="module" src="../cube-card.js"></script>
+  <script type="module" src="../cube-card-content.js"></script>
+  <script type="module" src="../node_modules/@kubex/cube-icon/cube-icon.js"></script>
+  <script type="module" src="../node_modules/@kubex/cube-action/cube-action.js"></script>
+  <script type="module" src="../node_modules/@polymer/iron-icons/iron-icons.js"></script>
+  <script type="module" src="../node_modules/@polymer/iron-icons/maps-icons.js"></script>
+  <script type="module" src="../node_modules/@polymer/iron-icons/communication-icons.js"></script>
+  <script type="module" src="../node_modules/@polymer/iron-icons/places-icons.js"></script>
 </head>
-<body unresolved>
+<body>
 
 <style>
   cube-card {
@@ -118,7 +121,8 @@
 
 <cube-card>
 
-  <cube-card-content slim style="background: url('https://img1.123freevectors.com/wp-content/uploads/vectorgraphics/wavy-background-free-vector.jpg');background-size:cover; background-position-y:-93px; height:80px;">
+  <cube-card-content slim
+                     style="background: url('https://www.123freevectors.com/wp-content/uploads/vectorgraphics/wavy-background-free-vector.jpg');background-size:cover; background-position-y:-93px; height:80px;">
 
     <em class="info">1200</em>
   </cube-card-content>
